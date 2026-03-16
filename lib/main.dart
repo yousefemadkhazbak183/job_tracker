@@ -1,14 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:job_tracker/core/theme/app_theme.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  runApp(const JobTrackerApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class JobTrackerApp extends StatelessWidget {
+  const JobTrackerApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(debugShowCheckedModeBanner: false, title: 'JobTrack');
+    return MaterialApp(
+      title: 'Job Tracker',
+      debugShowCheckedModeBanner: false,
+      theme: AppTheme.lightTheme,
+      home: const Scaffold(body: Center(child: Text('Job Tracker'))),
+    );
   }
 }

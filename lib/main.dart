@@ -4,6 +4,7 @@ import 'package:job_tracker/core/constants/app_constants.dart';
 import 'package:job_tracker/core/service_locator.dart';
 import 'package:job_tracker/core/theme/app_theme.dart';
 import 'package:job_tracker/features/applications/data/models/job_application_model.dart';
+import 'package:job_tracker/features/applications/presentation/screens/splash_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -24,7 +25,7 @@ class JobTrackerApp extends StatelessWidget {
       title: 'Job Tracker',
       debugShowCheckedModeBanner: false,
       theme: AppTheme.lightTheme,
-      home: const Scaffold(body: Center(child: Text('Job Tracker'))),
+      home: const SplashScreen(),
     );
   }
 }

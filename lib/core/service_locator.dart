@@ -11,6 +11,7 @@ import 'package:job_tracker/features/applications/domain/usecases/add_applicatio
 import 'package:job_tracker/features/applications/domain/usecases/delete_application.dart';
 import 'package:job_tracker/features/applications/domain/usecases/get_all_applications.dart';
 import 'package:job_tracker/features/applications/domain/usecases/update_application.dart';
+import 'package:job_tracker/features/applications/presentation/cubit/applications_cubit.dart';
 
 final getIt = GetIt.instance;
 
@@ -39,5 +40,14 @@ Future<void> setupServiceLocator() async {
 
   getIt.registerSingleton<DeleteApplication>(
     DeleteApplication(getIt<JobApplicationRepository>()),
+  );
+
+  getIt.registerFactory<ApplicationsCubit>(
+    () => ApplicationsCubit(
+      getAllApplications: getIt<GetAllApplications>(),
+      addApplication: getIt<AddApplication>(),
+      updateApplication: getIt<UpdateApplication>(),
+      deleteApplication: getIt<DeleteApplication>(),
+    ),
   );
 }

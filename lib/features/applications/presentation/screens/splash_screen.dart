@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:job_tracker/features/applications/presentation/screens/home_screen.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:job_tracker/core/theme/app_colors.dart';
 
@@ -19,6 +20,10 @@ class _SplashScreenState extends State<SplashScreen> {
   Future<void> _navigateToHome() async {
     await Future.delayed(const Duration(seconds: 3));
     if (!mounted) return;
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (_) => const HomeScreen()),
+    );
   }
 
   @override

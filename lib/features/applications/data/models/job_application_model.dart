@@ -1,5 +1,6 @@
 import 'package:hive_ce/hive.dart';
 import 'package:job_tracker/core/enums/application_status.dart';
+import 'package:job_tracker/core/enums/interview_result.dart';
 
 import 'package:job_tracker/features/applications/domain/entities/job_application.dart';
 

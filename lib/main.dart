@@ -5,13 +5,13 @@ import 'package:job_tracker/core/service_locator.dart';
 import 'package:job_tracker/core/theme/app_theme.dart';
 import 'package:job_tracker/features/applications/data/models/job_application_model.dart';
 import 'package:job_tracker/features/applications/presentation/screens/splash_screen.dart';
+import 'package:job_tracker/hive_registrar.g.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Hive.initFlutter();
-  Hive.registerAdapter(JobApplicationModelAdapter());
+  Hive.registerAdapters();
   await Hive.openBox<JobApplicationModel>(AppConstants.databaseName);
-
   await setupServiceLocator();
   runApp(const JobTrackerApp());
 }

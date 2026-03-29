@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:job_tracker/core/theme/app_colors.dart';
 import 'package:job_tracker/features/applications/presentation/cubit/applications_cubit.dart';
 import 'package:job_tracker/features/applications/presentation/cubit/applications_state.dart';
+import 'package:job_tracker/features/applications/presentation/screens/add_application_screen.dart';
 import 'package:job_tracker/features/applications/presentation/widgets/application_card.dart';
 import 'package:job_tracker/features/applications/presentation/widgets/card_state.dart';
 import 'package:job_tracker/features/applications/presentation/widgets/home_shimmer.dart';
@@ -16,7 +17,20 @@ class HomeView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: const Text('My Applications')),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () async {
+          await Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (_) => BlocProvider.value(
+                value: context.read<ApplicationsCubit>(),
+                child: const AddApplicationScreen(),
+              ),
+            ),
+          );
+          if (context.mounted) {
+            context.read<ApplicationsCubit>().loadApplications();
+          }
+        },
         backgroundColor: AppColors.primary,
         child: const Icon(Icons.add, color: Colors.white),
       ),

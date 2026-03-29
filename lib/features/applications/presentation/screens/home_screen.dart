@@ -9,8 +9,8 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (_) => getIt<ApplicationsCubit>()..loadApplications(),
+    return BlocProvider.value(
+      value: getIt<ApplicationsCubit>()..loadApplications(),
       child: const HomeView(),
     );
   }

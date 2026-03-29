@@ -3,16 +3,22 @@
 // Check in to version control
 
 import 'package:hive_ce/hive_ce.dart';
+import 'package:job_tracker/core/enums/application_status.dart';
+import 'package:job_tracker/core/enums/interview_result.dart';
 import 'package:job_tracker/features/applications/data/models/job_application_model.dart';
 
 extension HiveRegistrar on HiveInterface {
   void registerAdapters() {
+    registerAdapter(ApplicationStatusAdapter());
+    registerAdapter(InterviewResultAdapter());
     registerAdapter(JobApplicationModelAdapter());
   }
 }
 
 extension IsolatedHiveRegistrar on IsolatedHiveInterface {
   void registerAdapters() {
+    registerAdapter(ApplicationStatusAdapter());
+    registerAdapter(InterviewResultAdapter());
     registerAdapter(JobApplicationModelAdapter());
   }
 }

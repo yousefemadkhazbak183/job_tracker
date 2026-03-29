@@ -1,4 +1,5 @@
 import 'package:job_tracker/core/enums/application_status.dart';
+import 'package:job_tracker/core/enums/interview_result.dart';
 
 class JobApplication {
   final String id;

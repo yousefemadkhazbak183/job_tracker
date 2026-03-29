@@ -42,7 +42,7 @@ Future<void> setupServiceLocator() async {
     DeleteApplication(getIt<JobApplicationRepository>()),
   );
 
-  getIt.registerFactory<ApplicationsCubit>(
+  getIt.registerLazySingleton<ApplicationsCubit>(
     () => ApplicationsCubit(
       getAllApplications: getIt<GetAllApplications>(),
       addApplication: getIt<AddApplication>(),

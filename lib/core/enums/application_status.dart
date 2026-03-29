@@ -1,3 +1,15 @@
-enum ApplicationStatus { noReply, accepted, rejected }
+import 'package:hive_ce/hive.dart';
 
-enum InterviewResult { accepted, rejected }
+part 'application_status.g.dart';
+
+@HiveType(typeId: 1)
+enum ApplicationStatus {
+  @HiveField(0)
+  noReply,
+
+  @HiveField(1)
+  accepted,
+
+  @HiveField(2)
+  rejected,
+}
